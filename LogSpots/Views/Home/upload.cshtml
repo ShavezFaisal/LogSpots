@@ -1,0 +1,73 @@
+﻿@model LogSpots.Models.FileUploadModel
+
+
+
+@using (Html.BeginForm("upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.file, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.file, new { htmlAttributes = new { @class = "form-control", @type = "file" } })
+                @Html.ValidationMessageFor(model => model.file, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Upload" class="btn btn-primary" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10 text-success">
+                @ViewBag.FileStatus
+            </div>
+        </div>
+    </div>
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="content-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 upload-page">
+
+                <div class="u-area">
+                    <i class="cv cvicon-cv-upload-video"></i>
+
+                    <p class="u-text1">Select Video files to upload</p>
+                    <p class="u-text2">or drag and drop video files</p>
+
+                    <form action="#" method="post">
+                        <button class="btn btn-primary u-btn">Upload Video</button>
+                    </form>
+                </div>
+
+                <div class="u-terms">
+                    <p>By submitting your videos to circle, you acknowledge that you agree to circle's <a href="#">Terms of Service</a> and <a href="#">Community Guidelines</a>.</p>
+                    <p>Please be sure not to violate others' copyright or privacy rights. Learn more</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@
